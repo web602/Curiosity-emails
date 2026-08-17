@@ -6,6 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="format-detection" content="telephone=no" />
 <title>Curiosity Applied — Issue 01</title>
+<!--
+  ASSETS
+  Six images live in the GHL media library already.
+  Four curve dividers and two white fade overlays are in this repo under assets/
+  and still need uploading — search this file for REPLACE- and swap in the GHL ids.
+-->
 <!--[if mso]>
 <xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
 <![endif]-->
@@ -13,7 +19,7 @@
 <style type="text/css">
   body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
   table,td{mso-table-lspace:0pt;mso-table-rspace:0pt}
-  img{-ms-interpolation-mode:bicubic;border:0;height:auto;line-height:100%;outline:none;text-decoration:none;display:block}
+  img{-ms-interpolation-mode:bicubic;border:0;line-height:100%;outline:none;text-decoration:none;display:block}
   table{border-collapse:collapse!important}
   body{margin:0!important;padding:0!important;width:100%!important;background:#E4E1DA}
   a{color:#4E74B9}
@@ -22,14 +28,16 @@
     .wrap{width:100%!important;max-width:100%!important}
     .pad{padding-left:24px!important;padding-right:24px!important}
     .stack{display:block!important;width:100%!important;max-width:100%!important}
-    .imgcol{display:block!important;width:100%!important;height:190px!important}
-    .gap{display:none!important;width:0!important}
-    .d-hero{font-size:32px!important}
-    .d-head{font-size:34px!important}
-    .d-pull{font-size:24px!important}
-    .d-off{font-size:38px!important}
+    .imgcol{display:block!important;width:100%!important}
+    .imgcell{height:200px!important}
+    .fade{display:none!important}
+    .divider{width:100%!important}
+    .hero-pad{padding:26px 24px 0!important}
+    .d-hero{font-size:30px!important}
+    .d-head{font-size:32px!important}
+    .d-pull{font-size:23px!important}
+    .d-off{font-size:36px!important}
     .idx-num{font-size:20px!important}
-    .spacer28{height:20px!important;font-size:20px!important;line-height:20px!important}
   }
 </style>
 </head>
@@ -51,19 +59,30 @@
         </tr>
         <tr><td style="height:5px;line-height:5px;font-size:0;background:#32415B;">&nbsp;</td></tr>
 
-        <!-- ── cover image ───────────────────────────────────────── -->
+        <!-- ── standfirst over cover image ───────────────────────── -->
         <tr>
-          <td style="font-size:0;line-height:0;">
-            <img src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d3afe4291bd10155c35.png" width="660" alt="" style="display:block;width:100%;max-width:660px;height:auto;border:0;" />
-          </td>
-        </tr>
-
-        <!-- ── standfirst ────────────────────────────────────────── -->
-        <tr>
-          <td class="pad" align="center" style="padding:38px 46px 6px;">
-            <div class="d-hero" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:44px;line-height:1.0;letter-spacing:-0.02em;text-transform:uppercase;color:#32415B;max-width:520px;margin:0 auto;">
-              What's really shaping behaviour right now — and where the obvious story falls short.
-            </div>
+          <td height="330" valign="top" background="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d3afe4291bd10155c35.png" style="height:330px;background-color:#101820;background-image:url('https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d3afe4291bd10155c35.png');background-position:50% 42%;background-size:cover;background-repeat:no-repeat;">
+            <!--[if gte mso 9]>
+            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:660px;height:330px;">
+            <v:fill type="frame" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d3afe4291bd10155c35.png" color="#101820" />
+            <v:textbox inset="0,0,0,0">
+            <v:rect fill="true" stroke="false" style="width:660px;height:330px;">
+            <v:fill color="#0C121A" opacity="58%" />
+            <v:textbox inset="0,0,0,0">
+            <![endif]-->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="height:330px;">
+              <tr>
+                <td class="hero-pad" height="330" align="center" valign="top" style="height:330px;padding:34px 46px 0;background-color:rgba(12,18,26,0.58);">
+                  <div class="d-hero" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:44px;line-height:1.0;letter-spacing:-0.02em;text-transform:uppercase;color:#FFFFFF;max-width:520px;margin:0 auto;text-shadow:0 2px 18px rgba(8,12,18,.55);">
+                    What's really shaping behaviour right now — and where the obvious story falls short.
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <!--[if gte mso 9]>
+            </v:textbox></v:rect>
+            </v:textbox></v:rect>
+            <![endif]-->
           </td>
         </tr>
 
@@ -119,38 +138,50 @@
 
         <!-- ── 01 segmentation ───────────────────────────────────── -->
         <tr>
-          <td class="pad" style="background:#4E74B9;padding:34px 46px 30px;">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <td>
+            <table role="presentation" width="660" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+              <!-- colour band, full width -->
               <tr>
-                <td valign="bottom" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:34px;line-height:1;color:#BCCAE4;padding-right:16px;">01</td>
-                <td valign="bottom" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#FFFFFF;padding-bottom:4px;">Segmentation</td>
+                <td colspan="2" class="pad" style="background:#4E74B9;padding:34px 46px 28px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td valign="bottom" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:34px;line-height:1;color:#BCCAE4;padding-right:16px;">01</td>
+                      <td valign="bottom" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#FFFFFF;padding-bottom:4px;">Segmentation</td>
+                    </tr>
+                  </table>
+                  <div class="d-head" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:48px;line-height:.98;letter-spacing:-.015em;text-transform:uppercase;color:#FFFFFF;padding-top:16px;max-width:530px;">
+                    Enough of this 'Generation Z' bullshit
+                  </div>
+                </td>
               </tr>
-            </table>
-            <div class="d-head" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:48px;line-height:.98;letter-spacing:-.015em;text-transform:uppercase;color:#FFFFFF;padding-top:16px;max-width:530px;">
-              Enough of this 'Generation Z' bullshit
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="pad" style="padding:38px 46px 44px;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <!-- band continues on the left; photo rises into it on the right -->
               <tr>
-                <td class="stack" valign="top" style="font-family:Inter,Helvetica,Arial,sans-serif;">
+                <td class="stack" width="428" height="106" valign="bottom" style="width:428px;height:106px;background:#4E74B9;font-size:0;line-height:0;">
+                  <img class="divider" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/REPLACE-divider-01.png" width="428" height="44" alt="" style="display:block;width:428px;height:44px;border:0;" />
+                </td>
+                <td class="imgcol" rowspan="2" width="232" valign="top" style="width:232px;background:#FFFFFF;">
+                  <table role="presentation" width="232" cellpadding="0" cellspacing="0" border="0" style="width:232px;">
+                    <tr>
+                      <td class="imgcell" height="320" background="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d3499074f5ef690cfb3.png" style="height:320px;background-color:#32415B;background-image:url('https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d3499074f5ef690cfb3.png');background-position:50% 30%;background-size:cover;background-repeat:no-repeat;">
+                        <!--[if gte mso 9]>
+                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:232px;height:320px;">
+                  <v:fill type="frame" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d3499074f5ef690cfb3.png" color="#32415B" />
+                  <v:textbox inset="0,0,0,0"><![endif]-->
+                        <img class="fade" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/REPLACE-fade-right.png" width="232" height="320" alt="" style="display:block;width:232px;height:320px;border:0;" />
+                        <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="stack pad" valign="top" style="padding:18px 28px 44px 46px;font-family:Inter,Helvetica,Arial,sans-serif;">
                   <div style="font-size:16.5px;line-height:1.72;color:#39435A;">Every few weeks we see blogs and op-eds trying to explain behaviour through generational labels — as if everyone born within a 20-year window shares the same motivations. It's neat. It's easy. And it quietly kills real insight.</div>
                   <div class="d-pull" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:29px;line-height:1.06;text-transform:uppercase;color:#4E74B9;padding-top:26px;">The patterns that matter don't sit in age bands. They sit in how people are actually living.</div>
                   <div style="font-size:16.5px;line-height:1.72;color:#39435A;padding-top:22px;">In our segmentation work the gaps show up quickly. People grouped into the same generation often behave completely differently once you understand their life stage, pressure and context. That's often where the opportunity is missed — and where better decisions start.</div>
                   <div style="padding-top:24px;">
                     <a href="#" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#32415B;text-decoration:none;border-bottom:2px solid #4E74B9;padding-bottom:5px;">Read more &rarr;</a>
                   </div>
-                </td>
-                <td class="gap" width="28" style="width:28px;font-size:0;line-height:0;">&nbsp;</td>
-                <td class="imgcol" width="232" height="320" valign="top" background="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d3499074f5ef690cfb3.png" style="width:232px;height:320px;background-color:#32415B;background-image:url('https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d3499074f5ef690cfb3.png');background-position:50% 30%;background-size:cover;background-repeat:no-repeat;">
-                  <!--[if gte mso 9]>
-                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:232px;height:320px;">
-                  <v:fill type="frame" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d3499074f5ef690cfb3.png" color="#32415B" />
-                  <v:textbox inset="0,0,0,0"><![endif]-->
-                  <div style="font-size:0;line-height:0;height:320px;">&nbsp;</div>
-                  <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
                 </td>
               </tr>
             </table>
@@ -159,33 +190,43 @@
 
         <!-- ── 02 rural pulse ────────────────────────────────────── -->
         <tr>
-          <td class="pad" align="right" style="background:#33B891;padding:34px 46px 30px;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <td>
+            <table role="presentation" width="660" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
               <tr>
-                <td width="100%" style="width:100%;font-size:0;line-height:0;">&nbsp;</td>
-                <td valign="bottom" nowrap="nowrap" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#123329;padding-right:16px;padding-bottom:4px;">Rural Pulse</td>
-                <td valign="bottom" nowrap="nowrap" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:34px;line-height:1;color:#23765D;">02</td>
+                <td colspan="2" class="pad" align="right" style="background:#33B891;padding:34px 46px 28px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td width="100%" style="width:100%;font-size:0;line-height:0;">&nbsp;</td>
+                      <td valign="bottom" nowrap="nowrap" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#123329;padding-right:16px;padding-bottom:4px;">Rural Pulse</td>
+                      <td valign="bottom" nowrap="nowrap" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:34px;line-height:1;color:#23765D;">02</td>
+                    </tr>
+                  </table>
+                  <div class="d-head" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:48px;line-height:.98;letter-spacing:-.015em;text-transform:uppercase;color:#32415B;padding-top:16px;max-width:530px;margin-left:auto;">
+                    Food security isn't a supply issue. It's a confidence one.
+                  </div>
+                </td>
               </tr>
-            </table>
-            <div class="d-head" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:48px;line-height:.98;letter-spacing:-.015em;text-transform:uppercase;color:#32415B;padding-top:16px;max-width:530px;margin-left:auto;">
-              Food security isn't a supply issue. It's a confidence one.
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="pad" style="padding:38px 46px 44px;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
-                <td class="imgcol" width="232" height="320" valign="top" background="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a66.png" style="width:232px;height:320px;background-color:#32415B;background-image:url('https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a66.png');background-position:32% 55%;background-size:cover;background-repeat:no-repeat;">
-                  <!--[if gte mso 9]>
+                <td class="imgcol" rowspan="2" width="232" valign="top" style="width:232px;background:#FFFFFF;">
+                  <table role="presentation" width="232" cellpadding="0" cellspacing="0" border="0" style="width:232px;">
+                    <tr>
+                      <td class="imgcell" height="320" background="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a66.png" style="height:320px;background-color:#32415B;background-image:url('https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a66.png');background-position:32% 55%;background-size:cover;background-repeat:no-repeat;">
+                        <!--[if gte mso 9]>
                   <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:232px;height:320px;">
                   <v:fill type="frame" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a66.png" color="#32415B" />
                   <v:textbox inset="0,0,0,0"><![endif]-->
-                  <div style="font-size:0;line-height:0;height:320px;">&nbsp;</div>
-                  <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
+                        <img class="fade" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/REPLACE-fade-left.png" width="232" height="320" alt="" style="display:block;width:232px;height:320px;border:0;" />
+                        <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
+                      </td>
+                    </tr>
+                  </table>
                 </td>
-                <td class="gap" width="28" style="width:28px;font-size:0;line-height:0;">&nbsp;</td>
-                <td class="stack" valign="top" align="right" style="font-family:Inter,Helvetica,Arial,sans-serif;text-align:right;">
+                <td class="stack" width="428" height="106" valign="bottom" style="width:428px;height:106px;background:#33B891;font-size:0;line-height:0;">
+                  <img class="divider" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/REPLACE-divider-02.png" width="428" height="44" alt="" style="display:block;width:428px;height:44px;border:0;" />
+                </td>
+              </tr>
+              <tr>
+                <td class="stack pad" valign="top" align="right" style="padding:18px 46px 44px 28px;font-family:Inter,Helvetica,Arial,sans-serif;text-align:right;">
                   <div style="font-size:16.5px;line-height:1.72;color:#39435A;">
                     <p style="margin:0 0 16px;">The food conversation in New Zealand is usually framed around production and export strength. Through our Rural Pulse programme we're seeing something closer to home. People aren't questioning whether New Zealand can produce enough food — they're questioning whether they'll be able to access it reliably.</p>
                     <p style="margin:0;">Affordability, competing land use and future uncertainty are reshaping confidence in the system itself. That gap between national capability and personal confidence is where trust is won or lost.</p>
@@ -201,23 +242,42 @@
 
         <!-- ── 03 ethnography ────────────────────────────────────── -->
         <tr>
-          <td class="pad" style="background:#F5851F;padding:34px 46px 30px;">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+          <td>
+            <table role="presentation" width="660" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
               <tr>
-                <td valign="bottom" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:34px;line-height:1;color:#A75913;padding-right:16px;">03</td>
-                <td valign="bottom" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#3C1D02;padding-bottom:4px;">Ethnography</td>
+                <td colspan="2" class="pad" style="background:#F5851F;padding:34px 46px 28px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td valign="bottom" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:34px;line-height:1;color:#A75913;padding-right:16px;">03</td>
+                      <td valign="bottom" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#3C1D02;padding-bottom:4px;">Ethnography</td>
+                    </tr>
+                  </table>
+                  <div class="d-head" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:48px;line-height:.98;letter-spacing:-.015em;text-transform:uppercase;color:#32415B;padding-top:16px;max-width:530px;">
+                    IKEA didn't land in New Zealand. It was rewritten by it.
+                  </div>
+                </td>
               </tr>
-            </table>
-            <div class="d-head" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:48px;line-height:.98;letter-spacing:-.015em;text-transform:uppercase;color:#32415B;padding-top:16px;max-width:530px;">
-              IKEA didn't land in New Zealand. It was rewritten by it.
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="pad" style="padding:38px 46px 44px;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
-                <td class="stack" valign="top" style="font-family:Inter,Helvetica,Arial,sans-serif;">
+                <td class="stack" width="428" height="106" valign="bottom" style="width:428px;height:106px;background:#F5851F;font-size:0;line-height:0;">
+                  <img class="divider" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/REPLACE-divider-03.png" width="428" height="44" alt="" style="display:block;width:428px;height:44px;border:0;" />
+                </td>
+                <td class="imgcol" rowspan="2" width="232" valign="top" style="width:232px;background:#FFFFFF;">
+                  <table role="presentation" width="232" cellpadding="0" cellspacing="0" border="0" style="width:232px;">
+                    <tr>
+                      <td class="imgcell" height="320" background="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a60.png" style="height:320px;background-color:#32415B;background-image:url('https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a60.png');background-position:34% 48%;background-size:cover;background-repeat:no-repeat;">
+                        <!--[if gte mso 9]>
+                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:232px;height:320px;">
+                  <v:fill type="frame" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a60.png" color="#32415B" />
+                  <v:textbox inset="0,0,0,0"><![endif]-->
+                        <img class="fade" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/REPLACE-fade-right.png" width="232" height="320" alt="" style="display:block;width:232px;height:320px;border:0;" />
+                        <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="stack pad" valign="top" style="padding:18px 28px 44px 46px;font-family:Inter,Helvetica,Arial,sans-serif;">
                   <div style="font-size:16.5px;line-height:1.72;color:#39435A;">
                     <p style="margin:0 0 16px;">When IKEA opened at Sylvia Park the story wasn't a global giant arriving; it was a global model adapting. Nationwide pickup points, hybrid journeys, circularity from day one — all shaped by how New Zealanders actually live and shop.</p>
                     <p style="margin:0;">Distance isn't abstract, convenience isn't negotiable, and effort plays a defining role in choice. That's the difference between rollout and relevance.</p>
@@ -226,15 +286,6 @@
                     <a href="#" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#32415B;text-decoration:none;border-bottom:2px solid #F5851F;padding-bottom:5px;">Read more &rarr;</a>
                   </div>
                 </td>
-                <td class="gap" width="28" style="width:28px;font-size:0;line-height:0;">&nbsp;</td>
-                <td class="imgcol" width="232" height="320" valign="top" background="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a60.png" style="width:232px;height:320px;background-color:#32415B;background-image:url('https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a60.png');background-position:34% 48%;background-size:cover;background-repeat:no-repeat;">
-                  <!--[if gte mso 9]>
-                  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:232px;height:320px;">
-                  <v:fill type="frame" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34fe4291bd10155a60.png" color="#32415B" />
-                  <v:textbox inset="0,0,0,0"><![endif]-->
-                  <div style="font-size:0;line-height:0;height:320px;">&nbsp;</div>
-                  <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
-                </td>
               </tr>
             </table>
           </td>
@@ -242,33 +293,43 @@
 
         <!-- ── 04 education ──────────────────────────────────────── -->
         <tr>
-          <td class="pad" align="right" style="background:#9D1D1F;padding:34px 46px 30px;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <td>
+            <table role="presentation" width="660" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
               <tr>
-                <td width="100%" style="width:100%;font-size:0;line-height:0;">&nbsp;</td>
-                <td valign="bottom" nowrap="nowrap" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#FFFFFF;padding-right:16px;padding-bottom:4px;">Education</td>
-                <td valign="bottom" nowrap="nowrap" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:34px;line-height:1;color:#D3999A;">04</td>
+                <td colspan="2" class="pad" align="right" style="background:#9D1D1F;padding:34px 46px 28px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td width="100%" style="width:100%;font-size:0;line-height:0;">&nbsp;</td>
+                      <td valign="bottom" nowrap="nowrap" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#FFFFFF;padding-right:16px;padding-bottom:4px;">Education</td>
+                      <td valign="bottom" nowrap="nowrap" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:34px;line-height:1;color:#D3999A;">04</td>
+                    </tr>
+                  </table>
+                  <div class="d-head" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:48px;line-height:.98;letter-spacing:-.015em;text-transform:uppercase;color:#FFFFFF;padding-top:16px;max-width:530px;margin-left:auto;">
+                    The problem with vocational education isn't what it offers. It's what it signals.
+                  </div>
+                </td>
               </tr>
-            </table>
-            <div class="d-head" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:48px;line-height:.98;letter-spacing:-.015em;text-transform:uppercase;color:#FFFFFF;padding-top:16px;max-width:530px;margin-left:auto;">
-              The problem with vocational education isn't what it offers. It's what it signals.
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="pad" style="padding:38px 46px 44px;">
-            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
-                <td class="imgcol" width="232" height="320" valign="top" background="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34a6a03cda06b561fc.png" style="width:232px;height:320px;background-color:#32415B;background-image:url('https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34a6a03cda06b561fc.png');background-position:50% 40%;background-size:cover;background-repeat:no-repeat;">
-                  <!--[if gte mso 9]>
+                <td class="imgcol" rowspan="2" width="232" valign="top" style="width:232px;background:#FFFFFF;">
+                  <table role="presentation" width="232" cellpadding="0" cellspacing="0" border="0" style="width:232px;">
+                    <tr>
+                      <td class="imgcell" height="320" background="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34a6a03cda06b561fc.png" style="height:320px;background-color:#32415B;background-image:url('https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34a6a03cda06b561fc.png');background-position:50% 40%;background-size:cover;background-repeat:no-repeat;">
+                        <!--[if gte mso 9]>
                   <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:232px;height:320px;">
                   <v:fill type="frame" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/6a827d34a6a03cda06b561fc.png" color="#32415B" />
                   <v:textbox inset="0,0,0,0"><![endif]-->
-                  <div style="font-size:0;line-height:0;height:320px;">&nbsp;</div>
-                  <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
+                        <img class="fade" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/REPLACE-fade-left.png" width="232" height="320" alt="" style="display:block;width:232px;height:320px;border:0;" />
+                        <!--[if gte mso 9]></v:textbox></v:rect><![endif]-->
+                      </td>
+                    </tr>
+                  </table>
                 </td>
-                <td class="gap" width="28" style="width:28px;font-size:0;line-height:0;">&nbsp;</td>
-                <td class="stack" valign="top" align="right" style="font-family:Inter,Helvetica,Arial,sans-serif;text-align:right;">
+                <td class="stack" width="428" height="106" valign="bottom" style="width:428px;height:106px;background:#9D1D1F;font-size:0;line-height:0;">
+                  <img class="divider" src="https://assets.cdn.filesafe.space/Ww4ZHwD5ZF0uGRD9sDGD/media/REPLACE-divider-04.png" width="428" height="44" alt="" style="display:block;width:428px;height:44px;border:0;" />
+                </td>
+              </tr>
+              <tr>
+                <td class="stack pad" valign="top" align="right" style="padding:18px 46px 44px 28px;font-family:Inter,Helvetica,Arial,sans-serif;text-align:right;">
                   <div style="font-size:16.5px;line-height:1.72;color:#39435A;">The shift in tertiary decision-making is often framed as a student problem. It isn't. Vocational pathways are credible, practical and increasingly aligned to how people want to build careers. The hesitation sits elsewhere.</div>
                   <div class="d-pull" style="font-family:'Anton SC','Arial Narrow','Helvetica Neue',Impact,sans-serif;font-size:29px;line-height:1.06;text-transform:uppercase;color:#9D1D1F;padding-top:24px;">It sits with the influencers.</div>
                   <div style="font-size:16.5px;line-height:1.72;color:#39435A;padding-top:18px;">Parents and careers advisers still hold a powerful, often unspoken role in shaping what &ldquo;good&rdquo; looks like — and vocational training is too often positioned as a fallback, not a first choice. That gap between a strong offer and a second-tier perception is where uptake falters.</div>
