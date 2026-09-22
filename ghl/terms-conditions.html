@@ -1,0 +1,306 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --em:#269C67; --em-deep:#1B7350; --em-forest:#12583B; --em-night:#0E3D2A;
+    --em-bright:#3FC486; --lime:#C8F2A9; --mint:#E7F2EC; --mint-2:#D5ECDF;
+    --pearl:#FBFAF5; --sand:#F2EFE4; --white:#FFFFFF;
+    --text:#163B2B; --text-soft:#4E6A5C; --text-faint:#7C9387;
+    --rule:rgba(27,115,80,0.14); --rule-strong:rgba(27,115,80,0.28);
+    --glass:rgba(255,255,255,0.62);
+    --shadow-md:0 24px 50px -20px rgba(14,61,42,0.28);
+    --max:1360px;
+    --ease:cubic-bezier(.2,.8,.2,1);
+    --serif:'Instrument Serif',Georgia,serif;
+    --sans:'Hanken Grotesk',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  /* ============ FULL-BLEED ARCHITECTURE (breaks out of GHL / page-builder containers) ============ */
+  html,body{margin:0!important;padding:0!important;width:100%;max-width:100%;overflow-x:hidden;}
+  body > div,
+  #app, #root, #main, #wrapper,
+  .hl_page-preview--content,.hl_page-creator--content,.hl_page-creator--row,.hl_page-creator--column,
+  .c-wrapper,.c-section,.c-row,.c-column,.c-content,.c-body,
+  .section-wrap,.row-wrap,.col-wrap,.inner,.inner-content,
+  .container,.container-fluid,.row,.col,.fullSection,.fullRow{
+    width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;
+    padding-left:0!important;padding-right:0!important;float:none!important;overflow:visible!important;
+  }
+  #page-full-bleed{position:relative;display:block;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:0;overflow:clip;background:var(--pearl);}
+  @supports (width:100dvw){#page-full-bleed{width:100dvw;max-width:100dvw;margin-left:calc(50% - 50dvw);margin-right:calc(50% - 50dvw);}}
+  #page-full-bleed > section,#page-full-bleed > header,#page-full-bleed > footer,#page-full-bleed > div{width:100%;max-width:none;margin:0;float:none;}
+
+  body{margin:0;background:var(--pearl);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  #page-full-bleed::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:300;opacity:.05;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  :focus-visible{outline:3px solid var(--em-bright);outline-offset:3px;border-radius:8px;}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;color:var(--em-forest);letter-spacing:-0.015em;}
+  .it{font-style:italic;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 48px;position:relative;}
+  @media(max-width:900px){.wrap{padding:0 22px;}}
+
+  .kicker{display:inline-flex;align-items:center;gap:12px;font-size:14px;font-weight:600;color:var(--em-deep);margin-bottom:22px;}
+  .kicker::before{content:"";width:34px;height:1px;background:var(--em);}
+
+  .logo-plate{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:20px 34px;border-radius:28px;isolation:isolate;background:transparent;}
+  .logo-plate::before{
+    content:"";position:absolute;inset:-2px;border-radius:30px;padding:2px;z-index:-1;
+    background:conic-gradient(from var(--ang,0deg),transparent 0 55%,var(--lime) 70%,var(--em-bright) 80%,var(--em) 90%,transparent 100%);
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+    animation:spinAng 5s linear infinite;
+  }
+  .logo-plate::after{
+    content:"";position:absolute;inset:-40% -25%;z-index:-2;border-radius:50%;
+    background:radial-gradient(closest-side,rgba(63,196,134,0.35),transparent 70%);
+    animation:halo 5s ease-in-out infinite;pointer-events:none;
+  }
+  @keyframes halo{50%{transform:scale(1.12);opacity:.7;}}
+  @property --ang{syntax:'<angle>';inherits:false;initial-value:0deg;}
+  @keyframes spinAng{to{--ang:360deg;}}
+  .logo-plate img{height:124px;width:auto;position:relative;}
+  @media(max-width:600px){.logo-plate{padding:14px 22px;} .logo-plate img{height:88px;}}
+
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:250;background:linear-gradient(90deg,var(--em),var(--em-bright),var(--lime));}
+
+  /* ---------- Header (same treatment as the workshop hero, compact) ---------- */
+  .page-head{position:relative;padding:48px 0 96px;overflow:hidden;
+    background:radial-gradient(1100px 700px at 88% 10%,rgba(63,196,134,0.22),transparent 60%),radial-gradient(900px 600px at 0% 100%,rgba(200,242,169,0.5),transparent 60%),var(--pearl);}
+  .aurora{position:absolute;inset:-20%;pointer-events:none;opacity:.55;filter:blur(70px);
+    background:conic-gradient(from 200deg at 70% 40%,transparent,rgba(63,196,134,0.35),transparent 30%,rgba(200,242,169,0.5),transparent 55%);
+    animation:auroraSpin 30s linear infinite;}
+  @keyframes auroraSpin{to{transform:rotate(360deg);}}
+  .grid-lines{position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:calc(100% / 12) 100%;
+    mask-image:linear-gradient(180deg,transparent,#000 20%,#000 70%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 20%,#000 70%,transparent);opacity:.6;}
+  .head-inner{position:relative;z-index:2;}
+  .head-top{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:64px;}
+  .live-chip{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--em-forest);font-size:14px;font-weight:600;border:1px solid var(--rule);}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--em);flex:0 0 9px;}
+  .page-head h1{font-size:clamp(34px,9.4vw,128px);line-height:.95;letter-spacing:-0.025em;color:var(--em-forest);white-space:nowrap;}
+  .page-head h1 .ln{display:block;overflow:hidden;padding-bottom:.06em;}
+  .page-head h1 .ln > span{display:inline-block;transform:translateY(110%);animation:rise 1.2s var(--ease) forwards;}
+  .page-head h1 .ln:nth-child(2) > span{animation-delay:.15s;}
+  @keyframes rise{to{transform:translateY(0);}}
+  .page-head h1 .it{color:var(--em-deep);}
+  .page-head h1 .amp{font-style:italic;color:var(--em);}
+  .head-meta{display:flex;flex-wrap:wrap;gap:30px;margin-top:40px;padding-top:28px;border-top:1px solid var(--rule);max-width:640px;}
+  .head-meta div{font-size:14px;color:var(--text-soft);}
+  .head-meta b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;color:var(--em-forest);line-height:1.1;}
+  .fade-up{opacity:0;transform:translateY(22px);animation:fadeUp .9s var(--ease) forwards;}
+  @keyframes fadeUp{to{opacity:1;transform:none;}}
+  .d1{animation-delay:.35s}.d2{animation-delay:.5s}
+  @media(max-width:900px){.page-head{padding:40px 0 70px;} .head-top{margin-bottom:44px;}}
+
+  /* ---------- Policy body ---------- */
+  .policy{background:var(--pearl);padding:40px 0 140px;position:relative;}
+  .policy-grid{display:grid;grid-template-columns:0.55fr 1.45fr;gap:80px;align-items:start;}
+  .toc{position:sticky;top:40px;}
+  .toc ol{list-style:none;margin:0;padding:0;display:grid;gap:4px;counter-reset:toc;}
+  .toc a{display:flex;gap:12px;align-items:baseline;padding:9px 14px;border-radius:14px;text-decoration:none;font-size:15px;font-weight:600;color:var(--text-soft);transition:background .3s,color .3s;}
+  .toc a::before{counter-increment:toc;content:counter(toc,decimal-leading-zero);font-family:var(--serif);font-weight:400;font-size:17px;color:var(--text-faint);}
+  .toc a:hover{background:#fff;color:var(--em-forest);}
+  .toc a.active{background:var(--mint);color:var(--em-forest);}
+  .toc a.active::before{color:var(--em);}
+
+  .intro{font-size:clamp(20px,1.8vw,25px);line-height:1.45;color:var(--text);font-weight:500;margin:0 0 20px;max-width:760px;}
+  .company{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--em-forest);margin:0 0 56px;}
+  .block{background:#fff;border-radius:30px;padding:48px 52px;margin-bottom:18px;box-shadow:0 0 0 1px var(--rule);scroll-margin-top:30px;position:relative;overflow:hidden;}
+  .block .ghost-num{position:absolute;right:28px;top:-26px;font-family:var(--serif);font-size:150px;line-height:1;color:var(--mint);pointer-events:none;}
+  .block h2{position:relative;font-size:clamp(32px,3.2vw,46px);line-height:1.05;margin:0 0 22px;padding-right:140px;}
+  .block h2 .it{color:var(--em);}
+  .block p{position:relative;margin:0 0 16px;color:var(--text-soft);font-size:17px;max-width:720px;}
+  .block p:last-child{margin-bottom:0;}
+  .block ul{position:relative;list-style:none;margin:6px 0 20px;padding:0;display:grid;gap:10px;max-width:720px;}
+  .block ul:last-child{margin-bottom:0;}
+  .block li{display:flex;gap:14px;align-items:flex-start;color:var(--text);font-size:17px;}
+  .block li::before{content:"";flex:0 0 8px;height:8px;border-radius:50%;background:var(--em);margin-top:10px;box-shadow:0 0 0 5px var(--mint);}
+  .block p a{color:var(--em-deep);font-weight:600;text-decoration:none;border-bottom:1px solid var(--rule-strong);}
+  .block p a:hover{border-color:var(--em);}
+  .note{position:relative;padding:20px 24px;border-radius:22px;background:var(--mint);color:var(--em-forest)!important;font-weight:500;}
+  .contact-card{background:linear-gradient(150deg,var(--em-forest),var(--em-night));color:#fff;box-shadow:var(--shadow-md);}
+  .contact-card::before{content:"";position:absolute;width:420px;height:420px;right:-160px;top:-180px;border-radius:50%;background:radial-gradient(circle,rgba(63,196,134,0.45),transparent 65%);}
+  .contact-card h2{color:#fff;} .contact-card h2 .it{color:var(--lime);}
+  .contact-card .ghost-num{color:rgba(255,255,255,0.06);}
+  .contact-card address{position:relative;font-style:normal;font-size:18px;line-height:1.6;color:rgba(255,255,255,0.88);}
+  .contact-card address b{display:block;font-family:var(--serif);font-weight:400;font-size:30px;color:#fff;margin-bottom:6px;}
+  .mail{position:relative;display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:14px 22px;border-radius:999px;background:#fff;color:var(--em-forest);font-weight:700;text-decoration:none;transition:background .3s;}
+  .mail:hover{background:var(--lime);}
+  @media(max-width:1000px){
+    .policy-grid{grid-template-columns:1fr;gap:30px;}
+    .toc{position:static;} .toc ol{grid-template-columns:1fr 1fr;}
+    .block{padding:32px 22px;border-radius:24px;} .block .ghost-num{font-size:100px;right:16px;top:-14px;} .block h2{padding-right:84px;}
+  }
+  @media(max-width:520px){.toc ol{grid-template-columns:1fr;}}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--mint);padding:72px 0 56px;text-align:center;border-top:1px solid var(--rule);}
+  footer .logo-plate{margin-bottom:26px;}
+  footer .logo-plate img{height:104px;}
+  footer p{margin:0;font-size:14.5px;color:var(--text-soft);}
+  .foot-links{margin-top:16px;display:flex;justify-content:center;gap:24px;}
+  .foot-links a{font-size:14.5px;color:var(--em-deep);font-weight:600;text-decoration:none;border-bottom:1px solid var(--rule-strong);padding-bottom:2px;}
+  .foot-links a:hover{border-color:var(--em);}
+
+  /* ---------- Reveals ---------- */
+  .rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1s var(--ease);}
+  .rv.in{opacity:1;transform:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
+    .rv,.fade-up{opacity:1!important;transform:none!important;}
+    .page-head h1 .ln > span{transform:none!important;}
+  }
+</style>
+
+<div id="page-full-bleed">
+
+<div id="progress"></div>
+
+<!-- ================= HEADER ================= -->
+<header class="page-head" id="top">
+  <div class="aurora"></div>
+  <div class="grid-lines"></div>
+
+  <div class="wrap head-inner">
+    <div class="head-top">
+      <div class="logo-plate fade-up">
+        <img class="logo-img" src="https://assets.cdn.filesafe.space/hJX2JRGUlqdQlJEngUZ1/media/6a3b283dee187be6896bf11e.png" alt="Agency 2.0" />
+      </div>
+      <span class="live-chip fade-up d1"><span class="dot"></span>Liber8me Ltd</span>
+    </div>
+
+    <h1>
+      <span class="ln"><span>Terms <span class="amp">&amp;</span> <span class="it">Conditions</span></span></span>
+    </h1>
+
+    <div class="head-meta fade-up d2">
+      <div><b>22 September 2026</b>Last updated</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= POLICY ================= -->
+<section class="policy">
+  <div class="wrap policy-grid">
+    <nav class="toc" aria-label="On this page">
+      <div class="kicker">On this page</div>
+      <ol>
+        <li><a href="#registration">Webinar and event registration</a></li>
+        <li><a href="#sms">SMS terms</a></li>
+        <li><a href="#email">Email communications</a></li>
+        <li><a href="#education">Webinar and educational information</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ol>
+    </nav>
+
+    <div class="policy-body">
+      <p class="company rv">Liber8me Ltd – Terms &amp; Conditions</p>
+      <p class="intro rv">These Terms &amp; Conditions apply to webinars, workshops, events, resources and communications provided by Liber8me Ltd, including those provided under the Agency 2.0 brand.</p>
+      <div style="height:36px"></div>
+
+      <article class="block rv" id="registration">
+        <div class="ghost-num">01</div>
+        <h2>Webinar and <span class="it">event registration</span></h2>
+        <p>When you register for a webinar, workshop or event, you agree to provide accurate contact information so that we can provide registration confirmation, access information and other communications relating to the event.</p>
+        <p>We may communicate with you by email in connection with your registration.</p>
+      </article>
+
+      <article class="block rv" id="sms">
+        <div class="ghost-num">02</div>
+        <h2>SMS <span class="it">terms</span></h2>
+        <p>If you choose to opt in to SMS communications when registering, you agree to receive non-marketing text messages from Liber8me Ltd relating to the webinar or event for which you registered.</p>
+        <p>Messages may include:</p>
+        <ul>
+          <li>Registration confirmation</li>
+          <li>Webinar or event access information</li>
+          <li>Reminders</li>
+          <li>Event updates</li>
+        </ul>
+        <p>SMS consent is optional and is not a condition of registration or purchase.</p>
+        <p>Message frequency varies. Message and data rates may apply.</p>
+        <p class="note">You may opt out of SMS messages at any time by replying STOP. For assistance, reply HELP or contact us at <a href="mailto:laura@liber8u.com">laura@liber8u.com</a>.</p>
+        <p>Mobile carriers are not liable for delayed or undelivered messages.</p>
+        <p>Your use of our SMS messaging service is also subject to our <a href="https://dsl.smash.global/privacy-policy-page">Privacy Policy</a>.</p>
+      </article>
+
+      <article class="block rv" id="email">
+        <div class="ghost-num">03</div>
+        <h2>Email <span class="it">communications</span></h2>
+        <p>We may send emails necessary to administer your webinar, workshop or event registration, including confirmation, access information, reminders and follow-up information.</p>
+        <p>Where permitted, we may also send information about relevant resources, events, services and offers.</p>
+        <p class="note">You can unsubscribe from marketing emails at any time using the unsubscribe link contained in those emails.</p>
+      </article>
+
+      <article class="block rv" id="education">
+        <div class="ghost-num">04</div>
+        <h2>Webinar and <span class="it">educational information</span></h2>
+        <p>Information provided through our webinars, workshops, events and resources is provided for general business and educational purposes.</p>
+        <p>While we aim to provide useful and accurate information, individual circumstances and business results vary. We do not guarantee any particular business, financial or other outcome from participating in a webinar, workshop, programme or using information we provide.</p>
+      </article>
+
+      <article class="block rv" id="privacy">
+        <div class="ghost-num">05</div>
+        <h2><span class="it">Privacy</span></h2>
+        <p>Your personal information is handled in accordance with our <a href="https://dsl.smash.global/privacy-policy-page">Privacy Policy</a>.</p>
+      </article>
+
+      <article class="block contact-card rv" id="contact">
+        <div class="ghost-num">06</div>
+        <h2>Contact <span class="it">us</span></h2>
+        <address>
+          <b>Liber8me Ltd</b>
+          8 Nevay Road<br />
+          Karaka Bays<br />
+          Wellington, New Zealand
+        </address>
+        <a class="mail" href="mailto:laura@liber8u.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>laura@liber8u.com</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo-plate"><img class="logo-img" src="https://assets.cdn.filesafe.space/hJX2JRGUlqdQlJEngUZ1/media/6a3b283dee187be6896bf11e.png" alt="Agency 2.0" /></div>
+    <p>© 2026 Laura Humphreys, Agency 2.0</p>
+    <div class="foot-links">
+      <a href="https://dsl.smash.global/privacy-policy-page">Privacy Policy</a>
+      <a href="https://dsl.smash.global/terms--conditions">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-full-bleed -->
+
+<script>
+(function(){
+  /* Progress bar */
+  var prog = document.getElementById('progress');
+  function onScroll(){
+    var y = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* Reveals */
+  var revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); revealObs.unobserve(en.target); } });
+  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ revealObs.observe(el); });
+
+  /* Contents highlight */
+  var links = document.querySelectorAll('.toc a');
+  var tocObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id); });
+    });
+  }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+  document.querySelectorAll('.block[id]').forEach(function(b){ tocObs.observe(b); });
+})();
+</script>
